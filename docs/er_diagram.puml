@@ -1,0 +1,49 @@
+
+entity customers {
+  * customer_id : int
+  --
+  first_name
+  last_name
+  email
+  phone
+}
+
+entity products {
+  * product_id : int
+  --
+  sku
+  name
+  category
+  price
+}
+
+entity orders {
+  * order_id : int
+  --
+  customer_id : int
+  order_date
+  status
+  total_amount
+}
+
+entity order_items {
+  * order_item_id : int
+  --
+  order_id : int
+  product_id : int
+  quantity
+  unit_price
+  line_total
+}
+
+entity inventory {
+  * product_id : int
+  --
+  stock_quantity
+  last_restocked
+}
+
+customers ||--o{ orders : places
+orders ||--o{ order_items : contains
+products ||--o{ order_items : included_in
+products ||--|| inventory : stock_of
