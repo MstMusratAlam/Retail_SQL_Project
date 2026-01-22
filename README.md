@@ -1,23 +1,27 @@
 # Retail_SQL_Project
-SQL project managing customers, products, orders, and inventory
-- Designed relational tables: `Customers`, `Products`, `Orders`, `OrderDetails`  
-- Implemented **primary keys, foreign keys, and data constraints**  
-- Created queries to:
-  - Track total sales per product  
-  - Generate customer order summaries  
-  - Identify low-stock products  
-  - View recent orders  
-- Created a **view** (`CustomerOrders`) for easy reporting  
-- Includes **sample data** and query results
-- | File | Description |
-|------|-------------|
-| `Retail_SQL_Project_Mimi.sql` | Contains SQL scripts for creating tables, inserting sample data, and executing queries |
-| `Retail_SQL_Project_Mimi.pdf` | Polished PDF version with ER diagram, tables, queries, and results (resume-ready) |
-| `Screenshots/` | Optional folder with screenshots of query results |
-1. Open your preferred SQL environment (MySQL, PostgreSQL, SQLite, etc.)  
-2. Run the `Retail_SQL_Project_Mimi.sql` file step by step:  
-   - Create tables  
-   - Insert sample data  
-   - Execute queries  
-3. View results for sales reports, low-stock alerts, and customer analytics
-4. “Developed a Retail Store Management System using SQL to manage customers, products, orders, and inventory. Implemented relational tables, data integrity constraints, and queries for reporting sales, stock, and customer analytics. Created views to improve efficiency.”
+
+Small retail database project: customers, products, orders, order_items, and inventory.
+
+Provide SQL schema, seed data, and example queries so others can reproduce the dataset and run example analyses.
+
+- sql/ddl/create_tables.sql — DDL to create tables (Postgres-friendly).
+- sql/dml/seed_data.sql — Sample data to seed the database.
+- sql/queries/example_queries.sql — Example queries and reports.
+- docs/er_diagram.puml — PlantUML ER diagram (render with PlantUML).
+- LICENSE — MIT license.
+- .gitignore
+
+- A relational DB (Postgres recommended). Adjust types if using MySQL/SQLite.
+- psql (for Postgres) or another client.
+
+1. Create database:
+   createdb retail_db
+2. Run DDL:
+   psql -d retail_db -f sql/ddl/create_tables.sql
+3. Load seed data:
+   psql -d retail_db -f sql/dml/seed_data.sql
+4. Run example queries:
+   psql -d retail_db -f sql/queries/example_queries.sql
+
+- The DDL targets Postgres; see header comments to change SERIAL/AUTO_INCREMENT or generated columns for other RDBMS.
+- If you prefer, keep the PDF as project deliverable, but SQL files let others reproduce the work.
